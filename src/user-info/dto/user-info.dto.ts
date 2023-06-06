@@ -10,3 +10,7 @@ export class CreateUserInfoDto {
 export class UpdateUserInfoDto extends PartialType(CreateUserInfoDto) {
   userId: string;
 }
+
+export class refreshTokenDTO {
+  refresh_token: string;
+}

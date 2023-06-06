@@ -16,8 +16,12 @@ export class UserService {
     return this.userModel.find().exec();
   }
 
-  async findOneById(accountId: string): Promise<UserInfo> {
-    return this.userModel.findById(accountId);
+  async findOneById(userId: string): Promise<UserInfo> {
+    return this.userModel.findOne({ _id: userId });
+  }
+
+  async findOneByEmail(email: string): Promise<UserInfo> {
+    return this.userModel.findOne({ emailAddress: email });
   }
 
   async updateById(userId: string) {
