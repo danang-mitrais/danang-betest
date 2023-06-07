@@ -1,9 +1,9 @@
 import { Inject, Injectable, UnauthorizedException } from '@nestjs/common';
 import { TokenExpiredError } from 'jsonwebtoken';
 import { IAuthResponse } from './interfaces/auth.interface';
-import { TokenHelper } from 'src/helper/token.helper';
-import { UserService } from 'src/user-info/user-info.service';
-import { UserInfo } from 'src/user-info/user-info.interface';
+import { TokenHelper } from '../helper/token.helper';
+import { UserService } from '../user-info/user-info.service';
+import { UserInfo } from '../user-info/user-info.interface';
 
 @Injectable()
 export class AuthenticationService {

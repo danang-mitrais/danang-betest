@@ -5,10 +5,10 @@ import { PassportModule } from '@nestjs/passport';
 import { JwtModule } from '@nestjs/jwt';
 import { JwtStrategy } from './jwt.strategy';
 import { HttpModule } from '@nestjs/axios';
-import { UserService } from 'src/user-info/user-info.service';
-import { userInfoProviders } from 'src/user-info/user-info.providers';
-import { DatabaseModule } from 'src/database/database.module';
-import { databaseProviders } from 'src/database/database.providers';
+import { UserService } from '../user-info/user-info.service';
+import { userInfoProviders } from '../user-info/user-info.providers';
+import { DatabaseModule } from '../database/database.module';
+import { databaseProviders } from '../database/database.providers';
 
 @Module({
   imports: [

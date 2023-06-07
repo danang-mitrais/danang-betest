@@ -1,4 +1,3 @@
-// src/account/account.service.ts
 import { Injectable, Inject } from '@nestjs/common';
 import { Model } from 'mongoose';
 import { AccountLogin } from './account-login.interface';

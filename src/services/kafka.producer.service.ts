@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { Kafka, Producer } from 'kafkajs';
 import { kafkaConfig } from '../config/kafka.config';
 import { UserService } from '../user-info/user-info.service';
-import { UserInfo } from 'src/user-info/user-info.interface';
+import { UserInfo } from '../user-info/user-info.interface';
 
 @Injectable()
 export class KafkaProducerService {

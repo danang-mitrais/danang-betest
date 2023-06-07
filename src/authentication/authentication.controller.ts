@@ -4,7 +4,7 @@ import { BadRequestException, Body, Controller, Post } from '@nestjs/common';
 //   ApiOkResponse,
 //   ApiTags,
 // } from '@nestjs/swagger';
-import { refreshTokenDTO } from 'src/user-info/dto/user-info.dto';
+import { refreshTokenDTO } from '../user-info/dto/user-info.dto';
 import { AuthenticationService } from './authentication.service';
 import { IAuthResponse } from './interfaces/auth.interface';
 

@@ -7,10 +7,10 @@ import {
   UseGuards,
 } from '@nestjs/common';
 import { AccountService } from './account-login.service';
-import { UserService } from 'src/user-info/user-info.service';
+import { UserService } from '../user-info/user-info.service';
 import { LoginAccountDto, RegisterAccountDto } from './dto/account-login.dto';
-import { AuthenticationService } from 'src/authentication/authentication.service';
-import { JwtAuthGuard } from 'src/authentication/jwt-auth.guard';
+import { AuthenticationService } from '../authentication/authentication.service';
+import { JwtAuthGuard } from '../authentication/jwt-auth.guard';
 
 @Controller('account')
 export class AccountController {

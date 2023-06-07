@@ -1,5 +1,5 @@
 import { PartialType } from '@nestjs/mapped-types';
-import { CreateUserInfoDto } from 'src/user-info/dto/user-info.dto';
+import { CreateUserInfoDto } from '../../user-info/dto/user-info.dto';
 
 export class CreateAccountLoginDto {
   userName: string;
