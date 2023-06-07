@@ -1,5 +1,3 @@
-// import { ApiProperty } from '@nestjs/swagger';
-
 export interface ITokenPayload {
   id: string;
   first_name: string;
@@ -23,20 +21,8 @@ export interface IRefreshToken {
 }
 
 export class IAuthResponse {
-  // @ApiProperty({
-  //   type: String,
-  // })
   access_token: string;
-  // @ApiProperty({
-  //   type: Number,
-  // })
   access_token_exp: number;
-  // @ApiProperty({
-  //   type: String,
-  // })
   refresh_token: string;
-  // @ApiProperty({
-  //   type: Number,
-  // })
   refresh_token_exp: number;
 }

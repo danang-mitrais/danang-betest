@@ -41,6 +41,4 @@ export class UserService {
   async deleteById(userId: string) {
     return `this ${userId} has been deleted`;
   }
-
-  // continue to define other CRUD operations (update, delete)
 }

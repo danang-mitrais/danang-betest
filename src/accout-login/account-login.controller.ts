@@ -59,7 +59,6 @@ export class AccountController {
       this.accountService.updateLastLogin(body.userName);
 
       return this.authService.generateTokens(userInfo);
-      // return 'Login Success';
     } catch (error) {
       if (error.response) {
         throw new BadRequestException(error.response);

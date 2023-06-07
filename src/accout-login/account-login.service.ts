@@ -49,6 +49,4 @@ export class AccountService {
   async deleteById(accountId: string) {
     return `this ${accountId} has been deleted`;
   }
-
-  // continue to define other CRUD operations (update, delete)
 }

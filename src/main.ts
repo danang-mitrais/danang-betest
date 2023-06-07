@@ -9,6 +9,5 @@ async function bootstrap() {
   await kafkaProducerService.produceUserInfo();
   await kafkaProducerService.disconnect();
   await app.listen(process.env.PORT ? parseInt(process.env.PORT) : 3000);
-  await app.close();
 }
 bootstrap();

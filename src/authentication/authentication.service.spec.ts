@@ -62,31 +62,6 @@ describe('AuthenticationService', () => {
     });
   });
   describe('generateTokens', () => {
-    //     it('should generate access and refresh tokens', async () => {
-    //       const user = {
-    //         fullName: 'Test User',
-    //         accountNumber: '123456',
-    //         emailAddress: 'test@email.com',
-    //         registrationNumber: 'REG123',
-    //       };
-    //       const tokenResponse = {
-    //         token: 'valid-token',
-    //         expires: new Date(Date.now() + 3600 * 1000),
-    //       };
-
-    //       mockTokenHelper.generate.mockResolvedValue(tokenResponse);
-
-    //       const result = await service.generateTokens(user);
-
-    //       expect(result).toEqual({
-    //         access_token: tokenResponse.token,
-    //         access_token_exp: tokenResponse.expires,
-    //         refresh_token: tokenResponse.token,
-    //         refresh_token_exp: tokenResponse.expires,
-    //       });
-    //     });
-    //   });
-
     describe('refreshToken', () => {
       it('should throw an error if no user found', async () => {
         const refresh_token = 'refresh-token';
@@ -122,5 +97,3 @@ describe('AuthenticationService', () => {
     });
   });
 });
-
-// Implement more tests for generateTokens() and refreshToken() following the same structure
