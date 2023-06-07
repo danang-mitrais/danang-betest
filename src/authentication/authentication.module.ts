@@ -5,6 +5,10 @@ import { PassportModule } from '@nestjs/passport';
 import { JwtModule } from '@nestjs/jwt';
 import { JwtStrategy } from './jwt.strategy';
 import { HttpModule } from '@nestjs/axios';
+import { UserService } from 'src/user-info/user-info.service';
+import { userInfoProviders } from 'src/user-info/user-info.providers';
+import { DatabaseModule } from 'src/database/database.module';
+import { databaseProviders } from 'src/database/database.providers';
 
 @Module({
   imports: [
@@ -14,9 +18,16 @@ import { HttpModule } from '@nestjs/axios';
       secret: process.env.TOKEN_SECRET,
       signOptions: { expiresIn: '180s' },
     }),
+    DatabaseModule,
   ],
   controllers: [AuthenticationController],
-  providers: [AuthenticationService, JwtStrategy],
+  providers: [
+    AuthenticationService,
+    JwtStrategy,
+    UserService,
+    ...userInfoProviders,
+    ...databaseProviders,
+  ],
   exports: [AuthenticationService],
 })
 export class AuthenticationModule {}

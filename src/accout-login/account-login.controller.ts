@@ -1,8 +1,16 @@
-import { BadRequestException, Body, Controller, Post } from '@nestjs/common';
+import {
+  BadRequestException,
+  Body,
+  Controller,
+  Get,
+  Post,
+  UseGuards,
+} from '@nestjs/common';
 import { AccountService } from './account-login.service';
 import { UserService } from 'src/user-info/user-info.service';
 import { LoginAccountDto, RegisterAccountDto } from './dto/account-login.dto';
 import { AuthenticationService } from 'src/authentication/authentication.service';
+import { JwtAuthGuard } from 'src/authentication/jwt-auth.guard';
 
 @Controller('account')
 export class AccountController {
@@ -11,6 +19,12 @@ export class AccountController {
     private readonly userService: UserService,
     private readonly authService: AuthenticationService,
   ) {}
+
+  @Get()
+  @UseGuards(JwtAuthGuard)
+  async accountDetail() {
+    return 'this is details about your account';
+  }
 
   @Post('registers')
   async create(@Body() body: RegisterAccountDto) {
@@ -42,6 +56,7 @@ export class AccountController {
         throw new BadRequestException('Username or Password incorrect');
       }
       const userInfo = await this.userService.findOneById(account.userId);
+      this.accountService.updateLastLogin(body.userName);
 
       return this.authService.generateTokens(userInfo);
       // return 'Login Success';

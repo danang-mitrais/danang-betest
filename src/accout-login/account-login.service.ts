@@ -2,7 +2,10 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { Model } from 'mongoose';
 import { AccountLogin } from './account-login.interface';
-import { CreateAccountLoginDto } from './dto/account-login.dto';
+import {
+  CreateAccountLoginDto,
+  UpdateAccountLoginDto,
+} from './dto/account-login.dto';
 
 @Injectable()
 export class AccountService {
@@ -21,6 +24,23 @@ export class AccountService {
 
   async findOneByUserName(userName: string): Promise<AccountLogin> {
     return this.accountModel.findOne({ userName: userName });
+  }
+
+  async updateLastLogin(userName: string) {
+    return this.accountModel.findOneAndUpdate(
+      { userName: userName },
+      { lastLoginDateTime: new Date() },
+    );
+  }
+
+  async updateAccountData(
+    accountId: string,
+    updateAccountDto: UpdateAccountLoginDto,
+  ) {
+    return this.accountModel.findOneAndUpdate(
+      { _id: accountId },
+      updateAccountDto,
+    );
   }
 
   async updateById(accountId: string) {

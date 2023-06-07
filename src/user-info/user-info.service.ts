@@ -24,6 +24,16 @@ export class UserService {
     return this.userModel.findOne({ emailAddress: email });
   }
 
+  async findOneByAccountNumber(accountNumber: string): Promise<UserInfo> {
+    return this.userModel.findOne({ accountNumber: accountNumber });
+  }
+
+  async findOneByRegistrationNumber(
+    registrationNumber: string,
+  ): Promise<UserInfo> {
+    return this.userModel.findOne({ registrationNumber: registrationNumber });
+  }
+
   async updateById(userId: string) {
     return `this ${userId} has been updated`;
   }

@@ -18,7 +18,6 @@ export class LoginAccountDto {
 }
 
 export class UpdateAccountLoginDto extends PartialType(CreateAccountLoginDto) {
-  accountId: string;
   userName?: string;
   password?: string;
 }
