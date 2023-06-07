@@ -8,7 +8,7 @@ export class UserController {
 
   @Get()
   async findAll() {
-    return this.userService.findAll();
+    return this.userService.getAllUsers();
   }
 
   @Post()

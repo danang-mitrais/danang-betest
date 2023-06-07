@@ -7,6 +7,7 @@ import { AccountLoginModule } from './accout-login/account-login.module';
 import { AuthenticationModule } from './authentication/authentication.module';
 import { JwtAuthGuard } from './authentication/jwt-auth.guard';
 import { APP_GUARD } from '@nestjs/core';
+import { KafkaProducerService } from './services/kafka.producer.service';
 
 @Module({
   imports: [
@@ -16,6 +17,10 @@ import { APP_GUARD } from '@nestjs/core';
     AuthenticationModule,
   ],
   controllers: [AppController],
-  providers: [AppService, { provide: APP_GUARD, useClass: JwtAuthGuard }],
+  providers: [
+    AppService,
+    KafkaProducerService,
+    { provide: APP_GUARD, useClass: JwtAuthGuard },
+  ],
 })
 export class AppModule {}

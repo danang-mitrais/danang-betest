@@ -12,7 +12,7 @@ export class UserService {
     return createdUser.save();
   }
 
-  async findAll(): Promise<UserInfo[]> {
+  async getAllUsers(): Promise<UserInfo[]> {
     return this.userModel.find().exec();
   }
 
